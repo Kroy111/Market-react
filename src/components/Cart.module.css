@@ -1,0 +1,27 @@
+.container {
+	display: flex;
+	flex-direction: column;
+	gap: 2rem;
+	align-items: space-evenly;
+}
+
+.item {
+	padding: 1rem;
+	display: flex;
+	align-items: center;
+	justify-content: space-between;
+
+	min-height: 10rem;
+	width: 100%;
+
+	border: 1px solid red;
+}
+
+.imageContainer {
+	border: 1px red solid;
+	height: 100%;
+
+	h1 {
+		height: 10rem;
+	}
+}

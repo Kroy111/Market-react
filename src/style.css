@@ -1,0 +1,338 @@
+/*
+  Josh's Custom CSS Reset
+  https://www.joshwcomeau.com/css/custom-css-reset/
+*/
+
+*,
+*::before,
+*::after {
+	box-sizing: border-box;
+}
+
+* {
+	margin: 0;
+}
+
+@media (prefers-reduced-motion: no-preference) {
+	html {
+		interpolate-size: allow-keywords;
+	}
+}
+
+body {
+	line-height: 1.5;
+	-webkit-font-smoothing: antialiased;
+}
+
+img,
+picture,
+video,
+canvas,
+svg {
+	display: block;
+	max-width: 100%;
+}
+
+input,
+button,
+textarea,
+select {
+	font: inherit;
+}
+
+p,
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+	overflow-wrap: break-word;
+}
+
+p {
+	text-wrap: pretty;
+}
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+	text-wrap: balance;
+}
+
+#root,
+#__next {
+	isolation: isolate;
+}
+
+/* My Css */
+
+#root {
+	max-width: 1280px;
+	margin: 0 auto;
+	padding: 2rem;
+	text-align: center;
+}
+
+/* reset */
+/*
+  Josh's Custom CSS Reset
+  https://www.joshwcomeau.com/css/custom-css-reset/
+*/
+
+*,
+*::before,
+*::after {
+	box-sizing: border-box;
+}
+
+* {
+	margin: 0;
+}
+
+@media (prefers-reduced-motion: no-preference) {
+	html {
+		interpolate-size: allow-keywords;
+	}
+}
+
+body {
+	line-height: 1.5;
+	-webkit-font-smoothing: antialiased;
+}
+
+img,
+picture,
+video,
+canvas,
+svg {
+	display: block;
+	max-width: 100%;
+}
+
+input,
+button,
+textarea,
+select {
+	font: inherit;
+}
+
+p,
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+	overflow-wrap: break-word;
+}
+
+p {
+	text-wrap: pretty;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+	text-wrap: balance;
+}
+
+#root,
+#__next {
+	isolation: isolate;
+}
+
+/* ------------------------------------------------------ */
+:root {
+	--bg-color: rgb(240, 238, 233);
+	--color-1: whitesmoke;
+	--color-border: #0000006b;
+	--color-header: #212121;
+	--color-text: #424242;
+	--shadow: #00000053;
+}
+
+body {
+	font-family: "Roboto", sans-serif;
+	background-color: var(--bg-color);
+	/* fill texture */
+	background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' height='20' width='20'%3E%3Ccircle cx='1' cy='1' r='2' fill='%23dadada' /%3E%3C/svg%3E ");
+}
+
+body > * {
+	padding: 2em;
+}
+
+/* HEADER */
+
+header {
+	display: flex;
+	align-items: center;
+	padding: 3rem 0;
+}
+
+.headerComponent {
+	color: var(--color-header);
+	font-size: x-large;
+	text-align: start;
+}
+
+.profile-images {
+	min-width: 300px;
+
+	filter: grayscale(1) contrast(2);
+	mix-blend-mode: exclusion;
+	border: 1.5px solid rgba(255, 255, 255, 0.559);
+	box-shadow: 0 10px 15px #ffffff53;
+	border-radius: 2px;
+	position: relative;
+
+	transition: filter 300ms ease-in-out;
+}
+
+.name {
+	mix-blend-mode: difference;
+	position: absolute;
+	font-size: 6rem;
+	top: 15rem;
+	left: 1rem;
+	z-index: 1;
+
+	color: var(--color-1);
+	/* background-image: linear-gradient(red, blue); */
+}
+
+p {
+	color: var(--color-text);
+}
+
+.profile-about {
+	display: flex;
+	flex-direction: column;
+	justify-content: space-around;
+
+	padding: 1rem 2rem;
+	background-color: var(--color-1);
+	min-height: 16rem;
+	/* min-width: 30rem; */
+
+	border: 1.5px solid var(--color-border);
+	border-left: none;
+	border-radius: 0 2px 2px 0;
+}
+
+.profile-link {
+	display: flex;
+	gap: 0.5rem;
+	justify-content: flex-end;
+}
+
+/* MAIN */
+
+main {
+}
+
+main h2 {
+	margin-bottom: 1rem;
+	font-size: 2rem;
+}
+
+.container {
+	display: grid;
+	grid-template-columns: repeat(auto-fit, minmax(256px, 1fr));
+	gap: 2rem;
+	justify-items: center;
+	align-items: stretch;
+}
+
+.card {
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+	background-color: var(--color-1);
+	border-radius: 2px;
+	border: 1.5px solid var(--color-border);
+	overflow: hidden;
+	max-height: 512px;
+	width: 100%;
+}
+
+/* .card > p {
+	padding: 0 1rem 0.8rem 1rem;
+	text-align: center;
+} */
+
+.project-title {
+	display: flex;
+	justify-content: space-between;
+	padding: 0.8rem 1rem 0.5rem 1rem;
+}
+
+.project-links {
+	display: flex;
+	gap: 0.5rem;
+}
+
+/* FOOTER */
+
+footer {
+	text-align: center;
+}
+
+.sw {
+	box-shadow: 0 10px 30px var(--shadow);
+}
+
+/* ----------MEDIA------------- */
+/* 
+@media (min-width: 596px) and (max-width: 878px) {
+	body {
+		overflow-x: hidden;
+	}
+
+	header {
+		display: block;
+	}
+
+	.profile-images {
+		max-width: 300px;
+		display: block;
+		float: left;
+		margin-right: 1rem;
+	}
+	.profile-about {
+		min-height: 18rem;
+		margin-top: 3rem;
+		margin-left: 3rem;
+		display: block;
+	}
+
+	.name {
+		white-space: nowrap;
+		left: 314px;
+		top: -14px;
+	}
+}
+
+@media (max-width: 595px) {
+	header {
+		display: flex;
+		flex-direction: column;
+		gap: 2rem;
+		padding-bottom: 0;
+	}
+
+	.name {
+		top: 28%;
+		left: 12%;
+	}
+
+	.profile-about {
+		border: 1.5px solid var(--color-border);
+	}
+} */
