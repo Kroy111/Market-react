@@ -7,15 +7,13 @@ export default function ItemDetail() {
 	const { items, cart } = useOutletContext();
 	const { id } = useParams();
 	const navigation = useNavigate();
-
 	const item = items.find((el) => el.id === Number(id));
 
 	if (!item) {
 		navigation(-1);
 		return null;
 	}
-
-	console.log(cart);
+	// console.log(cart);
 	return (
 		<div className={`sw ${style.card}`}>
 			<button
@@ -37,22 +35,44 @@ export default function ItemDetail() {
 					/>
 				</svg>
 			</button>
-			{/* <button type="button" onClick={() => navigation(-1)}>
-			</button> */}
+
 			<div className={style.imageContainer}>
 				<img src={item.image} alt={item.title} />
 			</div>
 
-			<div className={style.descriptionContainer}>
+			<div className={style.infoContainer}>
 				<div>
-					<h2>{item.title}</h2>
-					{/* <hr /> */}
-					{/* <h3>Description</h3> */}
+					<h1 className={style.title}>{item.title}</h1>
+
+					<div className={style.itemInfo}>
+						<ItemCategory options={item.id} name={"Article"} />
+						<ItemCategory options={item.category} name={"Category"} />
+						<ItemCategory
+							options={`${item.rating.rate}⭐️⭐️⭐️⭐️⭐️`}
+							name={"Rate"}
+						/>
+						<ItemCategory options={`${item.price}＄`} name={"Price"} />
+					</div>
+
 					<br />
+					<h3>About this item</h3>
 					<p>{item.description}</p>
 				</div>
 				<ItemAddControl item={item} />
 			</div>
+		</div>
+	);
+}
+
+function ItemCategory({ options, name }) {
+	return (
+		<div className={style.itemCharacteristic}>
+			<div className={style.itemCharacteristicLabel}>
+				<div className={style.itemCharacteristicTextMask}>
+					<span>{name}</span>
+				</div>
+			</div>
+			<span className={style.itemCharacteristicValue}>{options}</span>
 		</div>
 	);
 }

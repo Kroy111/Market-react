@@ -154,6 +154,8 @@ h6 {
 	--color-border: #0000006b;
 	--color-header: #212121;
 	--color-text: #424242;
+	--color-category: #6e6e6e;
+
 	--shadow: #00000053;
 }
 
@@ -255,7 +257,7 @@ main h2 {
 	flex-direction: column;
 	align-items: center;
 	background-color: var(--color-1);
-	border-radius: 2px;
+	border-radius: 4px;
 	border: 1.5px solid var(--color-border);
 	overflow: hidden;
 	max-height: 512px;
@@ -288,6 +290,36 @@ footer {
 	box-shadow: 0 10px 30px var(--shadow);
 }
 
+button {
+	border: 1px solid var(--color-border);
+	border-radius: 6px;
+	height: 2rem;
+	/* background-color: aqua; */
+	/* width: ; */
+	display: inline-flex;
+	align-items: center;
+	justify-content: center;
+	background: transparent;
+	cursor: pointer;
+	text-decoration: none;
+	text-align: center;
+	position: relative;
+}
+
+.overlay-effect {
+	position: absolute;
+	top: 0;
+	bottom: 0;
+	right: 0;
+	left: 0;
+	opacity: 0;
+	z-index: 1;
+	background-color: rgb(255, 255, 255);
+
+	&:hover {
+		opacity: 0.1;
+	}
+}
 /* ----------MEDIA------------- */
 /* 
 @media (min-width: 596px) and (max-width: 878px) {

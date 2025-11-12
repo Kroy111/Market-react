@@ -1,26 +1,26 @@
 .card {
+	display: grid;
+	gap: 1rem;
 	position: relative;
-	border: 1px orange solid;
 	padding: 2rem;
 	margin: 0 auto;
 	max-width: 980px;
-	display: grid;
-	gap: 1rem;
+	height: 100%;
+	width: 100%;
+	z-index: 0;
+	border-radius: 4px;
 	background-color: var(--color-1);
 
 	grid-template-columns: repeat(3, 1fr);
 	grid-template-rows: minmax(150px, 1fr);
-
 	grid-template-areas: "img info info";
+
+	/* border: 1px orange solid; */
 }
 
 .imageContainer {
 	grid-area: img;
-	border: 1px green solid;
-	/* width: 50%; */
 	align-self: center;
-	/* max-height: 30vh; */
-
 	overflow: hidden;
 
 	& img {
@@ -30,25 +30,73 @@
 	}
 }
 
-.descriptionContainer {
+.infoContainer {
 	display: flex;
-	gap: 1rem;
+	gap: 2rem;
 	flex-direction: column;
 	justify-content: space-between;
 	padding: 1rem;
 
 	grid-area: info;
 
-	background-color: var(--bg-color);
+	/* background-color: var(--bg-color); */
 
-	border: 1px blue solid;
-	/* align-items: center; */
+	/* border: 1px blue solid; */
+	text-align: start;
 }
+
+.title {
+	margin-bottom: 0.5rem;
+}
+
+/* -----Item category---- */
+.itemInfo {
+	display: inline-flex;
+	width: 100%;
+	flex-direction: column;
+	margin-bottom: 1rem;
+}
+
+.itemCharacteristic {
+	display: inline-flex;
+	text-align: start;
+	margin-bottom: 0.5rem;
+}
+
+.itemCharacteristicLabel {
+	display: flex;
+	position: relative;
+	overflow: hidden;
+	text-wrap: wrap;
+	width: 50%;
+	color: var(--color-category);
+
+	/* position: relative; */
+	/* flex: 1; */
+}
+
+.itemCharacteristicTextMask > span {
+	border-right: 4px solid var(--color-1);
+	background-color: var(--color-1);
+}
+
+.itemCharacteristicTextMask::after {
+	content: "";
+	position: absolute;
+	top: 16px;
+	right: 6px;
+	width: 100%;
+	height: 100%;
+	z-index: -1;
+	border-top: 1.5px dotted rgb(173, 173, 173);
+}
+
+/* -------- */
 
 .btnClose {
 	position: absolute;
-	top: 1rem;
-	right: 1rem;
+	top: 0.2rem;
+	right: 0.2rem;
 	display: flex;
 	justify-content: center;
 	align-self: flex-end;
@@ -56,10 +104,11 @@
 	height: 40px;
 	width: 40px;
 
+	background-color: transparent;
 	appearance: none;
 	border: none;
 	border-radius: 40px;
-	box-shadow: 0px 3px 6px var(--color-header);
+	/* box-shadow: 0px 3px 6px var(--color-header); */
 
 	opacity: 40%;
 	transition: opacity 150ms ease-in-out;
@@ -71,5 +120,32 @@
 
 	svg {
 		align-self: center;
+		text-shadow: 0px 3px 6px var(--color-header);
+	}
+}
+
+@media (width <= 760px) {
+	.card {
+		grid-template-columns: repeat(1, 1fr);
+		grid-template-rows: minmax(150px, 1fr);
+		grid-template-areas:
+			"img"
+			"info";
+	}
+
+	.imageContainer {
+		grid-area: img;
+		/* border: 1px green solid; */
+		max-width: 320px;
+		margin: 0 auto;
+		height: auto;
+
+		overflow: hidden;
+
+		& img {
+			height: inherit;
+			width: inherit;
+			object-fit: fill;
+		}
 	}
 }

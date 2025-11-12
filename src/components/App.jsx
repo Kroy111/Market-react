@@ -77,7 +77,9 @@ function App() {
 			<Outlet
 				context={{
 					cart,
-					// setCart,
+					//FIXME - need to delete after finishing cart!
+					setCart,
+					//
 					items,
 					deleteItem,
 					addItem,
