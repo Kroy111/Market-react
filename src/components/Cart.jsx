@@ -1,7 +1,8 @@
+import { useEffect, useState } from "react";
 import { useOutletContext } from "react-router";
 import styles from "./Cart.module.css";
 import ItemAddControl from "./shop/ItemAddControl";
-import { useEffect, useState } from "react";
+import Button from "./Button";
 
 export default function Cart() {
 	const { cart, items, setCart } = useOutletContext();
@@ -25,16 +26,10 @@ export default function Cart() {
 	return (
 		<>
 			{/* test block */}
-			<button
-				style={{ backgroundColor: "lightsalmon" }}
-				onClick={() => setCart({ 1: 4, 4: 1, 2: 10 })}
-				type="button"
-			>
+			<Button onClick={() => setCart({ 1: 4, 4: 1, 2: 10 })}>
 				test for cart
-			</button>
-			<button onClick={() => totalCheck(cart, items)} type="button">
-				total check
-			</button>
+			</Button>
+			<Button onClick={() => totalCheck(cart, items)}>total check</Button>
 			{/* -------------- */}
 
 			<div className="headerComponent">
@@ -106,8 +101,6 @@ function Checkout({ itemsInCart, totalCheck }) {
 					<span className={styles.textColor}>{itemsInCart} items</span>
 				</div>
 
-				<br />
-
 				<div className={styles.checkoutInfoBlock}>
 					<span className={styles.checkoutMainText}>{itemsInCart} Items</span>
 					<span className={styles.textColor}>{totalCheck} ＄</span>
@@ -121,10 +114,9 @@ function Checkout({ itemsInCart, totalCheck }) {
 				<br />
 			</div>
 
-			<button type="button" className={styles.btnCheckout}>
+			<Button variant="checkout" onClick={() => alert("Order is done!")}>
 				<span>Checkout</span>
-				<div className="overlay-effect"></div>
-			</button>
+			</Button>
 		</div>
 	);
 }

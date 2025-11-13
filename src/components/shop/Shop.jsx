@@ -1,4 +1,5 @@
 import { useEffect, useState } from "react";
+import { ShoppingBasket } from "lucide-react";
 import styles from "./Shop.module.css";
 import { useOutletContext, Link, useNavigate } from "react-router";
 import ItemControl from "./ItemAddControl";
@@ -38,14 +39,22 @@ export default function Shop() {
 	);
 }
 
-function Item({ item, count, handleAddItem, handleDecreaseItem }) {
-	// console.log(item);
-	//checking the cart for the presence of goods in it.
-	// const isCart = count > 0;
+function Item({ item }) {
+	const [isLoading, setIsLoading] = useState(false);
+
 	return (
 		<div className={`card sw ${styles.cardContainer}`}>
 			<div className={styles.cardImage}>
-				<img src={item.image} alt={item.title} />
+				{!isLoading && (
+					<ShoppingBasket size={256} className={styles.cardImageSkeleton} />
+				)}
+				<img
+					src={item.image}
+					alt={item.title}
+					onLoad={() => setIsLoading(true)}
+					className={isLoading ? styles.imageVisible : styles.imageHidden}
+				/>
+				<Link to={`/shop/${item.id}`} className={styles.linkToItem}></Link>
 			</div>
 
 			<div className={styles.cardControl}>
@@ -53,30 +62,8 @@ function Item({ item, count, handleAddItem, handleDecreaseItem }) {
 				<Link to={`/shop/${item.id}`}>Description</Link>
 
 				<p>Price: {item.price}$</p>
-				{/* {!isCart ? (
-					<button
-						type="button"
-						onClick={() => {
-							handleAddItem(item);
-						}}
-					>
-						Add cart
-					</button>
-				) : (
-					<div className={styles.cardItemsControl}>
-						<button type="button" onClick={() => handleDecreaseItem(item)}>
-							-
-						</button>
-						<p>{count}</p>
-						<button type="button" onClick={() => handleAddItem(item)}>
-							+
-						</button>
-					</div>
-				)} */}
 				<ItemControl item={item} />
 			</div>
-
-			<Link to={`/shop/${item.id}`} className={styles.linkToItem}></Link>
 		</div>
 	);
 }

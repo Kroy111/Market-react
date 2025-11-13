@@ -151,6 +151,8 @@ h6 {
 :root {
 	--bg-color: rgb(240, 238, 233);
 	--color-1: whitesmoke;
+	--color-2: rgb(241, 241, 241);
+	--color-3: rgb(229, 226, 226);
 	--color-border: #0000006b;
 	--color-header: #212121;
 	--color-text: #424242;
@@ -290,12 +292,11 @@ footer {
 	box-shadow: 0 10px 30px var(--shadow);
 }
 
-button {
+/* button {
 	border: 1px solid var(--color-border);
 	border-radius: 6px;
 	height: 2rem;
-	/* background-color: aqua; */
-	/* width: ; */
+
 	display: inline-flex;
 	align-items: center;
 	justify-content: center;
@@ -319,7 +320,7 @@ button {
 	&:hover {
 		opacity: 0.1;
 	}
-}
+} */
 /* ----------MEDIA------------- */
 /* 
 @media (min-width: 596px) and (max-width: 878px) {

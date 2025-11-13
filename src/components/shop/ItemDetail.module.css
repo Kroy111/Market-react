@@ -45,6 +45,9 @@
 	text-align: start;
 }
 
+.controlWrapper {
+	max-width: 35%;
+}
 .title {
 	margin-bottom: 0.5rem;
 }

@@ -1,0 +1,63 @@
+.btn {
+	display: inline-flex;
+	align-items: center;
+	justify-content: center;
+	cursor: pointer;
+	position: relative;
+	background: transparent;
+	border-radius: 6px;
+	height: 2rem;
+	text-decoration: none;
+	text-align: center;
+	border: 1px solid var(--color-border);
+}
+
+/* wrapper for children */
+.contentWrapper {
+	display: flex;
+	justify-content: center;
+	pointer-events: none;
+	z-index: 2;
+	/* flex: 0; */
+	color: var(--color-text);
+}
+
+/* control div overlay effect */
+.overlay-effect {
+	position: absolute;
+	pointer-events: none;
+	top: 0;
+	bottom: 0;
+	right: 0;
+	left: 0;
+	opacity: 0;
+	z-index: 1;
+	background-color: var(--color-border);
+	transition: opacity 100ms ease-in-out;
+}
+
+.btn:hover .overlay-effect {
+	opacity: 0.2;
+}
+
+/* Styles btn */
+
+/* main btn */
+.primary {
+	background-color: var(--color-2);
+}
+
+.checkout {
+	height: 58px;
+	color: white;
+	background-color: rgb(16 196 76);
+	font-size: larger;
+	font-weight: bolder;
+	border: none;
+}
+
+.checkout .overlay-effect {
+	background-color: rgb(255, 255, 255);
+}
+
+/* ---------- */

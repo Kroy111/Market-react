@@ -1,5 +1,7 @@
 import { useOutletContext } from "react-router";
+import Button from "../Button";
 import style from "./ItemAddControl.module.css";
+import { Trash, Plus, Minus } from "lucide-react";
 
 export default function ItemControl({ item }) {
 	const { cart, addItem, decreaseItem } = useOutletContext();
@@ -10,23 +12,23 @@ export default function ItemControl({ item }) {
 	return (
 		<div className={style.cardControl}>
 			{!isCart ? (
-				<button
-					type="button"
+				<Button
 					onClick={() => {
 						addItem(item);
 					}}
 				>
-					Add cart
-				</button>
+					<span>Add cart</span>
+				</Button>
 			) : (
 				<div className={style.cardItemsControl}>
-					<button type="button" onClick={() => decreaseItem(item)}>
-						-
-					</button>
-					<p>{count}</p>
-					<button type="button" onClick={() => addItem(item)}>
-						+
-					</button>
+					<Button onClick={() => decreaseItem(item)}>
+						{count === 1 ? <Trash size={20} /> : <Minus size={20} />}
+						{/* <span>-</span> */}
+					</Button>
+					<p className={style.pCount}>{count}</p>
+					<Button onClick={() => addItem(item)}>
+						<Plus size={20} />
+					</Button>
 				</div>
 			)}
 		</div>

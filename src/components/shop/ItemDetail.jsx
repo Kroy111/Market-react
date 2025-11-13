@@ -13,7 +13,7 @@ export default function ItemDetail() {
 		navigation(-1);
 		return null;
 	}
-	// console.log(cart);
+
 	return (
 		<div className={`sw ${style.card}`}>
 			<button
@@ -58,7 +58,9 @@ export default function ItemDetail() {
 					<h3>About this item</h3>
 					<p>{item.description}</p>
 				</div>
-				<ItemAddControl item={item} />
+				<div className={style.controlWrapper}>
+					<ItemAddControl item={item} />
+				</div>
 			</div>
 		</div>
 	);
