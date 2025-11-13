@@ -19,7 +19,7 @@
 	pointer-events: none;
 	z-index: 2;
 	/* flex: 0; */
-	color: var(--color-text);
+	/* color: var(--color-text); */
 }
 
 /* control div overlay effect */
