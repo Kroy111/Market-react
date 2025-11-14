@@ -22,6 +22,7 @@
 	grid-area: img;
 	align-self: center;
 	overflow: hidden;
+	position: relative;
 
 	& img {
 		height: inherit;

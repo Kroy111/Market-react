@@ -1,8 +1,8 @@
-import { useEffect, useState } from "react";
-import { ShoppingBasket } from "lucide-react";
-import styles from "./Shop.module.css";
 import { useOutletContext, Link, useNavigate } from "react-router";
+
+import styles from "./Shop.module.css";
 import ItemControl from "./ItemAddControl";
+import Image from "../Image.jsx";
 
 export default function Shop() {
 	//access to data from App.jsx
@@ -40,20 +40,10 @@ export default function Shop() {
 }
 
 function Item({ item }) {
-	const [isLoading, setIsLoading] = useState(false);
-
 	return (
-		<div className={`card sw ${styles.cardContainer}`}>
+		<div className={`card sw fade-in ${styles.cardContainer}`}>
 			<div className={styles.cardImage}>
-				{!isLoading && (
-					<ShoppingBasket size={256} className={styles.cardImageSkeleton} />
-				)}
-				<img
-					src={item.image}
-					alt={item.title}
-					onLoad={() => setIsLoading(true)}
-					className={isLoading ? styles.imageVisible : styles.imageHidden}
-				/>
+				<Image item={item} />
 				<Link to={`/shop/${item.id}`} className={styles.linkToItem}></Link>
 			</div>
 

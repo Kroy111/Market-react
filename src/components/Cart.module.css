@@ -70,7 +70,7 @@ img {
 	flex-direction: column;
 	/* flex-basis: 20%; */
 	justify-content: space-between;
-
+	width: 25%;
 	min-width: 128px;
 }
 

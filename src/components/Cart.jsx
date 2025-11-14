@@ -3,6 +3,7 @@ import { useOutletContext } from "react-router";
 import styles from "./Cart.module.css";
 import ItemAddControl from "./shop/ItemAddControl";
 import Button from "./Button";
+import Image from "./Image";
 
 export default function Cart() {
 	const { cart, items, setCart } = useOutletContext();
@@ -26,7 +27,11 @@ export default function Cart() {
 	return (
 		<>
 			{/* test block */}
-			<Button onClick={() => setCart({ 1: 4, 4: 1, 2: 10 })}>
+			<Button
+				onClick={() => {
+					setCart({ 1: 4, 4: 1, 2: 10 });
+				}}
+			>
 				test for cart
 			</Button>
 			<Button onClick={() => totalCheck(cart, items)}>total check</Button>
@@ -58,17 +63,14 @@ export default function Cart() {
 }
 
 function Item({ obj, count }) {
-	// console.log(obj);
+	const [isFadeOut, setIsFadeOut] = useState(false);
+
 	return (
-		<div className={`${styles.itemCard} sw`}>
+		<div
+			className={`${styles.itemCard} sw ${isFadeOut ? "fade-out" : "fade-in"}`}
+		>
 			<div className={styles.itemImage}>
-				<img
-					src={obj.image}
-					alt={obj.title}
-					style={{
-						objectFit: "contain",
-					}}
-				/>
+				<Image item={obj} />
 			</div>
 
 			<div className={styles.itemSummary}>

@@ -266,11 +266,6 @@ main h2 {
 	width: 100%;
 }
 
-/* .card > p {
-	padding: 0 1rem 0.8rem 1rem;
-	text-align: center;
-} */
-
 .project-title {
 	display: flex;
 	justify-content: space-between;
@@ -282,6 +277,25 @@ main h2 {
 	gap: 0.5rem;
 }
 
+/* FADE IN ANIMATION */
+.fade-out {
+	opacity: 0;
+	transition: opacity 2s ease-in-out;
+}
+
+.fade-in {
+	animation: fade-in 350ms ease-in;
+}
+
+@keyframes fade-in {
+	from {
+		opacity: 0;
+	}
+	to {
+		opacity: 1;
+	}
+}
+
 /* FOOTER */
 
 footer {
@@ -291,81 +305,3 @@ footer {
 .sw {
 	box-shadow: 0 10px 30px var(--shadow);
 }
-
-/* button {
-	border: 1px solid var(--color-border);
-	border-radius: 6px;
-	height: 2rem;
-
-	display: inline-flex;
-	align-items: center;
-	justify-content: center;
-	background: transparent;
-	cursor: pointer;
-	text-decoration: none;
-	text-align: center;
-	position: relative;
-}
-
-.overlay-effect {
-	position: absolute;
-	top: 0;
-	bottom: 0;
-	right: 0;
-	left: 0;
-	opacity: 0;
-	z-index: 1;
-	background-color: rgb(255, 255, 255);
-
-	&:hover {
-		opacity: 0.1;
-	}
-} */
-/* ----------MEDIA------------- */
-/* 
-@media (min-width: 596px) and (max-width: 878px) {
-	body {
-		overflow-x: hidden;
-	}
-
-	header {
-		display: block;
-	}
-
-	.profile-images {
-		max-width: 300px;
-		display: block;
-		float: left;
-		margin-right: 1rem;
-	}
-	.profile-about {
-		min-height: 18rem;
-		margin-top: 3rem;
-		margin-left: 3rem;
-		display: block;
-	}
-
-	.name {
-		white-space: nowrap;
-		left: 314px;
-		top: -14px;
-	}
-}
-
-@media (max-width: 595px) {
-	header {
-		display: flex;
-		flex-direction: column;
-		gap: 2rem;
-		padding-bottom: 0;
-	}
-
-	.name {
-		top: 28%;
-		left: 12%;
-	}
-
-	.profile-about {
-		border: 1.5px solid var(--color-border);
-	}
-} */

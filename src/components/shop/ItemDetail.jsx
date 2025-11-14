@@ -2,6 +2,7 @@ import { useNavigate, useOutletContext, useParams } from "react-router";
 import style from "./ItemDetail.module.css";
 
 import ItemAddControl from "./ItemAddControl";
+import Image from "../Image";
 
 export default function ItemDetail() {
 	const { items, cart } = useOutletContext();
@@ -15,7 +16,7 @@ export default function ItemDetail() {
 	}
 
 	return (
-		<div className={`sw ${style.card}`}>
+		<div className={`fade-in sw ${style.card}`}>
 			<button
 				type="button"
 				className={style.btnClose}
@@ -37,7 +38,8 @@ export default function ItemDetail() {
 			</button>
 
 			<div className={style.imageContainer}>
-				<img src={item.image} alt={item.title} />
+				{/* <img src={item.image} alt={item.title} /> */}
+				<Image item={item} />
 			</div>
 
 			<div className={style.infoContainer}>
