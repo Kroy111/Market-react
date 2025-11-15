@@ -4,10 +4,19 @@ import style from "./ItemAddControl.module.css";
 import { Trash, Plus, Minus } from "lucide-react";
 
 export default function ItemControl({ item }) {
-	const { cart, addItem, decreaseItem } = useOutletContext();
+	const { cart, addItem, decreaseItem, deleteItem } = useOutletContext();
 
-	const count = cart[item.id];
-	const isCart = cart[item.id] > 0;
+	// console.log(cart[item.id]?.count);
+	const count = cart[item.id]?.count;
+	const isCart = count > 0;
+
+	const decreaseOrDelete = () => {
+		if (count > 1) {
+			decreaseItem(item);
+		} else {
+			deleteItem(item);
+		}
+	};
 
 	return (
 		<div className={style.cardControl}>
@@ -21,7 +30,7 @@ export default function ItemControl({ item }) {
 				</Button>
 			) : (
 				<div className={style.cardItemsControl}>
-					<Button onClick={() => decreaseItem(item)}>
+					<Button onClick={() => decreaseOrDelete()}>
 						{count === 1 ? <Trash size={20} /> : <Minus size={20} />}
 						{/* <span>-</span> */}
 					</Button>

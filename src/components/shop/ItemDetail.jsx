@@ -5,10 +5,10 @@ import ItemAddControl from "./ItemAddControl";
 import Image from "../Image";
 
 export default function ItemDetail() {
-	const { items, cart } = useOutletContext();
+	const { itemsList, cart } = useOutletContext();
 	const { id } = useParams();
 	const navigation = useNavigate();
-	const item = items.find((el) => el.id === Number(id));
+	const item = itemsList.find((el) => el.id === Number(id));
 
 	if (!item) {
 		navigation(-1);

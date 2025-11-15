@@ -280,11 +280,11 @@ main h2 {
 /* FADE IN ANIMATION */
 .fade-out {
 	opacity: 0;
-	transition: opacity 2s ease-in-out;
+	transition: opacity 250ms ease-out;
 }
 
 .fade-in {
-	animation: fade-in 350ms ease-in;
+	animation: fade-in 250ms ease-in;
 }
 
 @keyframes fade-in {

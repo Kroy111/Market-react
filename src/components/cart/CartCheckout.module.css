@@ -1,0 +1,39 @@
+.highlightCategory {
+	color: #00ad30;
+}
+
+.checkoutContainer {
+	flex: 0;
+	position: sticky;
+	top: 0;
+	align-items: stretch;
+	padding: 1rem;
+	max-width: 270px;
+	min-width: 268px;
+	height: 100%;
+
+	border: 2px solid orange;
+}
+
+.checkoutInfo {
+	border: 1px solid gray;
+}
+
+.checkoutInfoBlock:first-child {
+	padding-bottom: 0.6rem;
+}
+
+.checkoutInfoBlock {
+	display: flex;
+	justify-content: space-between;
+	align-items: center;
+}
+
+.btnCheckout {
+	height: 58px;
+	color: white;
+	background-color: rgb(16 196 76);
+	font-size: larger;
+	font-weight: bolder;
+	border: none;
+}

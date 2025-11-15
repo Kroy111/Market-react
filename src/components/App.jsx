@@ -7,7 +7,7 @@ const urlApi = "https://fakestoreapi.com/products";
 
 function App() {
 	const navigate = useNavigate();
-	const [items, setItems] = useState([]);
+	const [itemsList, setItemsList] = useState([]);
 	const [cart, setCart] = useState({});
 
 	//fetching items.
@@ -16,7 +16,7 @@ function App() {
 			try {
 				const data = await fetchingData(urlApi);
 				console.log("Fetching data: ", data);
-				setItems(data);
+				setItemsList(data);
 			} catch (err) {
 				console.error(err);
 				setTimeout(fetchData, 5000);
@@ -32,23 +32,45 @@ function App() {
 	//Adding and increase item in cart
 	const addItem = (item) => {
 		setCart((prev) => ({
-			...prev,
-			[item.id]: (prev[item.id] ?? 0) + 1,
+			...prev, // тут идет копирование свойств на первом слое
+			[item.id]: {
+				//тут мы спускаемся ниже по айдишнику
+				...prev[item.id], //опять копируем свойства которые есть на втором слое
+				count: (prev[item.id]?.count ?? 0) + 1,
+				removing: false,
+			},
 		}));
 		console.log("add item from App.jsx");
 	};
 
 	//Decrease item in cart
 	const decreaseItem = (item) => {
-		if (cart[item.id] > 1) {
-			setCart((prev) => ({
+		setCart((prev) => {
+			const currentCount = prev[item.id].count;
+
+			if (currentCount <= 1) {
+				markItemRemoving(item);
+			}
+			return {
 				...prev,
-				[item.id]: prev[item.id] - 1,
-			}));
-		} else {
-			deleteItem(item);
-		}
-		console.log("remove/decrease item from App.jsx");
+				[item.id]: {
+					...prev[item.id],
+					count: prev[item.id].count - 1,
+				},
+			};
+		});
+	};
+
+	const markItemRemoving = (item) => {
+		setCart((prev) => ({
+			...prev,
+			[item.id]: {
+				//ANCHOR not shure, but mb need use it
+				...prev[item.id],
+				removing: true,
+			},
+		}));
+		console.log(cart[item.id]);
 	};
 
 	const deleteItem = (item) => {
@@ -80,7 +102,7 @@ function App() {
 					//FIXME - need to delete after finishing cart!
 					setCart,
 					//
-					items,
+					itemsList,
 					deleteItem,
 					addItem,
 					decreaseItem,

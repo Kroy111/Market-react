@@ -1,20 +1,20 @@
 import { useOutletContext, Link, useNavigate } from "react-router";
 
 import styles from "./Shop.module.css";
-import ItemControl from "./ItemAddControl";
+import ItemAddControl from "./ItemAddControl";
 import Image from "../Image.jsx";
 
 export default function Shop() {
 	//access to data from App.jsx
-	//- items contains the all goods for shop
-	const { items, cart, addItem, decreaseItem } = useOutletContext();
+	//- itemsList contains the all goods for shop
+	const { itemsList, cart } = useOutletContext();
 
 	const navigator = useNavigate();
 
 	return (
 		<>
 			<div className="headerComponent">
-				<button type="button" onClick={() => console.log(items)}>
+				<button type="button" onClick={() => console.log(itemsList)}>
 					fetching data
 				</button>
 				<button type="button" onClick={() => console.log(cart)}>
@@ -25,14 +25,8 @@ export default function Shop() {
 			</div>
 
 			<div className="shopItems container">
-				{items.map((el) => (
-					<Item
-						key={el.id}
-						item={el}
-						count={cart[el.id] ?? 0}
-						handleAddItem={addItem}
-						handleDecreaseItem={decreaseItem}
-					/>
+				{itemsList.map((el) => (
+					<Item key={el.id} item={el} />
 				))}
 			</div>
 		</>
@@ -52,7 +46,8 @@ function Item({ item }) {
 				<Link to={`/shop/${item.id}`}>Description</Link>
 
 				<p>Price: {item.price}$</p>
-				<ItemControl item={item} />
+
+				<ItemAddControl item={item} />
 			</div>
 		</div>
 	);
