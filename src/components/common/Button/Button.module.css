@@ -18,8 +18,6 @@
 	justify-content: center;
 	pointer-events: none;
 	z-index: 2;
-	/* flex: 0; */
-	/* color: var(--color-text); */
 }
 
 /* control div overlay effect */
@@ -40,9 +38,10 @@
 	opacity: 0.2;
 }
 
-/* Styles btn */
+/* Styles btn
 
-/* main btn */
+    main btn 
+*/
 .primary {
 	background-color: var(--color-2);
 }
@@ -60,4 +59,58 @@
 	background-color: rgb(255, 255, 255);
 }
 
-/* ---------- */
+/* ---------- 
+    Navigation bar
+*/
+
+.navBar {
+	--text: "";
+
+	border: none;
+	padding: 0 2rem;
+	position: relative;
+	height: 3.5rem;
+	min-width: 140px;
+	font-size: 2rem;
+	font-weight: 900;
+
+	transition: box-shadow 300ms ease-in-out;
+}
+
+.navBar svg {
+	transition: transform 250ms ease-in-out;
+	/* background-color: aqua; */
+	transform: translateX(0);
+}
+
+.navBar:hover svg {
+	background-color: var(--color-2);
+	transform: translateX(-110%);
+}
+
+.navBar:hover {
+	box-shadow: 0 8px 16px #00000063;
+}
+
+.navBar::after {
+	content: var(--text);
+	position: absolute;
+
+	left: 0;
+	right: 0;
+	opacity: 0;
+	transform: translateX(10%);
+
+	transition:
+		transform 50ms ease-in-out,
+		opacity 100ms ease-in-out;
+}
+
+.navBar:hover::after {
+	transform: translateX(15%);
+	opacity: 1;
+}
+
+.navBar .overlay-effect {
+	background-color: transparent;
+}

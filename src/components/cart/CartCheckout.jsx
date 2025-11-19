@@ -1,4 +1,4 @@
-import Button from "../Button";
+import Button from "../common/Button/Button";
 import styles from "./CartCheckout.module.css";
 
 export default function CartCheckout({ itemsInCart, totalCheck }) {

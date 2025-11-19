@@ -1,8 +1,8 @@
 import App from "../components/App.jsx";
-import News from "../components/News.jsx";
-import ErrorPage from "../components/ErrorPage.jsx";
-import Shop from "../components/shop/Shop.jsx";
-import Cart from "../components/cart/CartPage.jsx";
+import News from "../pages/Home/News.jsx";
+import ErrorPage from "../pages/ErrorPage/ErrorPage.jsx";
+import Shop from "../pages/Shop/Shop.jsx";
+import Cart from "../pages/Cart/Cart.jsx";
 import ItemDetail from "../components/shop/ItemDetail.jsx";
 const arr = [1, 2, 3, 4, 5, 6, 7, 7];
 

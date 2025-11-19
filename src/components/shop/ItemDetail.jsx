@@ -2,7 +2,7 @@ import { useNavigate, useOutletContext, useParams } from "react-router";
 import style from "./ItemDetail.module.css";
 
 import ItemAddControl from "./ItemAddControl";
-import Image from "../Image";
+import Image from "../common/Image/Image";
 
 export default function ItemDetail() {
 	const { itemsList, cart } = useOutletContext();

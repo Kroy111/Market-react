@@ -1,5 +1,5 @@
 import { useOutletContext } from "react-router";
-import Button from "../Button";
+import Button from "../common/Button/Button";
 import style from "./ItemAddControl.module.css";
 import { Trash, Plus, Minus } from "lucide-react";
 
@@ -13,9 +13,14 @@ export default function ItemControl({ item }) {
 	const decreaseOrDelete = () => {
 		if (count > 1) {
 			decreaseItem(item);
+			console.log("item count Decrease");
 		} else {
-			deleteItem(item);
+			// deleteItem(item);
+			decreaseItem(item);
+
+			console.log("item was deleted");
 		}
+		// decreaseItem(item);
 	};
 
 	return (

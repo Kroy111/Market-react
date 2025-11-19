@@ -158,7 +158,8 @@ h6 {
 	--color-text: #424242;
 	--color-category: #6e6e6e;
 
-	--shadow: #00000053;
+	--shadow-1: #00000023;
+	--shadow-2: #00000053;
 }
 
 body {
@@ -303,5 +304,20 @@ footer {
 }
 
 .sw {
-	box-shadow: 0 10px 30px var(--shadow);
+	box-shadow: 0 10px 30px var(--shadow-1);
+
+	transition: box-shadow 200ms ease-in-out;
 }
+.sw:hover {
+	box-shadow: 0 10px 30px var(--shadow-2);
+}
+
+/* .sw::after {
+	content: "";
+	position: absolute;
+	top: 0;
+	bottom: 0;
+	right: 0;
+	left: 0;
+	box-shadow: 0 10px 30px red;
+} */

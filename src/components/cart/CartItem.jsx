@@ -2,7 +2,7 @@ import { useEffect, useState } from "react";
 import styles from "./CartItem.module.css";
 import ItemAddControl from "../shop/ItemAddControl";
 
-import Image from "../Image";
+import Image from "../common/Image/Image";
 const ANIMATION_DURATION = 250;
 
 export default function CartItem({ obj, count, isRemoving, isDeleteItem }) {
@@ -21,6 +21,7 @@ export default function CartItem({ obj, count, isRemoving, isDeleteItem }) {
 		return () => clearTimeout(timer);
 	}, [isRemoving, obj, isDeleteItem]);
 
+	if (!obj) return null;
 	return (
 		<div
 			className={`${styles.itemCard} sw ${isFadeOut ? "fade-out" : "fade-in"}`}

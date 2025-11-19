@@ -1,6 +1,7 @@
 import { useEffect, useState } from "react";
 import { Outlet, useNavigate } from "react-router";
 import fetchingData from "./fetchingData";
+import NavigationBar from "./navigationBar/NavigationBar";
 
 const urlApi = "https://fakestoreapi.com/products";
 // let fetchingCount
@@ -70,6 +71,7 @@ function App() {
 				removing: true,
 			},
 		}));
+		console.log("Mark to remove");
 		console.log(cart[item.id]);
 	};
 
@@ -81,20 +83,7 @@ function App() {
 	};
 	return (
 		<>
-			<header>
-				<nav>
-					<button type="submit" onClick={() => navigate("/")}>
-						News
-					</button>
-					<button type="submit" onClick={() => navigate("shop")}>
-						Shop
-					</button>
-					<button type="submit" onClick={() => navigate("cart")}>
-						Cart
-					</button>
-				</nav>
-			</header>
-			<h2>items in cart: {Object.keys(cart).length}</h2>
+			<NavigationBar />
 
 			<Outlet
 				context={{

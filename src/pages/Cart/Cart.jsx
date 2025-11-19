@@ -1,9 +1,9 @@
 import { useEffect, useState } from "react";
 import { useOutletContext } from "react-router";
-import styles from "./CartPage.module.css";
-import Button from "../Button";
-import CartItem from "./CartItem";
-import CartCheckout from "./CartCheckout";
+import styles from "./Cart.module.css";
+import Button from "../../components/common/Button/Button";
+import CartItem from "../../components/cart/CartItem";
+import CartCheckout from "../../components/cart/CartCheckout";
 
 export default function Cart() {
 	const { cart, itemsList, setCart, deleteItem } = useOutletContext();
