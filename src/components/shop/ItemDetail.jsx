@@ -1,7 +1,7 @@
 import { useNavigate, useOutletContext, useParams } from "react-router";
 import style from "./ItemDetail.module.css";
 
-import ItemAddControl from "./ItemAddControl";
+import ItemAddControl from "../ItemAddControl/ItemAddControl";
 import Image from "../common/Image/Image";
 
 export default function ItemDetail() {

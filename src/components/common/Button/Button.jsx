@@ -5,6 +5,7 @@ export default function Button({
 	onClick,
 	variant = "primary",
 	styleText,
+	ariaLabel,
 }) {
 	const baseClass = style.btn;
 	const typeClass = style[variant];
@@ -14,7 +15,8 @@ export default function Button({
 			type="button"
 			className={`${baseClass} ${typeClass}`}
 			onClick={onClick}
-			style={{ "--text": `"${styleText}"` }}
+			style={styleText && { "--text": `"${styleText}"` }}
+			aria-label={ariaLabel}
 		>
 			<span className={style.contentWrapper}>{children}</span>
 			<div className={style["overlay-effect"]}></div>

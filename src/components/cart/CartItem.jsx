@@ -1,25 +1,16 @@
 import { useEffect, useState } from "react";
 import styles from "./CartItem.module.css";
-import ItemAddControl from "../shop/ItemAddControl";
-
+import ItemAddControl from "../ItemAddControl/ItemAddControl";
 import Image from "../common/Image/Image";
-const ANIMATION_DURATION = 250;
 
-export default function CartItem({ obj, count, isRemoving, isDeleteItem }) {
+export default function CartItem({ obj, count, isRemoving }) {
 	const [isFadeOut, setIsFadeOut] = useState(false);
 
 	useEffect(() => {
-		let timer;
 		if (isRemoving) {
 			setIsFadeOut(true);
-
-			timer = setTimeout(() => {
-				isDeleteItem(obj);
-			}, ANIMATION_DURATION);
 		}
-
-		return () => clearTimeout(timer);
-	}, [isRemoving, obj, isDeleteItem]);
+	}, [isRemoving]);
 
 	if (!obj) return null;
 	return (

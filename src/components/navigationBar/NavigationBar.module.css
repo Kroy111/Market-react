@@ -21,7 +21,15 @@ header {
 	/* background-color: var(--color-1); */
 	/* border: 1.5px solid var(--color-border); */
 	border-radius: 6px;
+	align-items: center;
 	justify-content: center;
+}
+
+.navLiWrapper {
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	flex-basis: 20%;
 }
 
 .navList > li {
@@ -38,6 +46,6 @@ header {
 	color: var(--color-header);
 }
 
-.navLiDot:last-child {
+.navLiWrapper:last-child .navLiDot {
 	color: transparent;
 }

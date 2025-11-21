@@ -43,7 +43,7 @@ export default function Cart() {
 
 			<div className="headerComponent">
 				<h1>Cart</h1>
-				<p>{itemsInCart}</p>
+				{/* <p>{itemsInCart}</p> */}
 			</div>
 			{!isEmptyCart && (
 				<div className={styles.container}>

@@ -281,11 +281,13 @@ main h2 {
 /* FADE IN ANIMATION */
 .fade-out {
 	opacity: 0;
-	transition: opacity 250ms ease-out;
+	transition: opacity 250ms ease-out !important;
 }
 
 .fade-in {
 	animation: fade-in 250ms ease-in;
+	/* opacity: 1; */
+	/* transition: opacity 250ms ease-out !important; */
 }
 
 @keyframes fade-in {
@@ -311,13 +313,3 @@ footer {
 .sw:hover {
 	box-shadow: 0 10px 30px var(--shadow-2);
 }
-
-/* .sw::after {
-	content: "";
-	position: absolute;
-	top: 0;
-	bottom: 0;
-	right: 0;
-	left: 0;
-	box-shadow: 0 10px 30px red;
-} */

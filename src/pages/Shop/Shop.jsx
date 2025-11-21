@@ -1,7 +1,7 @@
 import { useOutletContext, Link, useNavigate } from "react-router";
 
 import styles from "./Shop.module.css";
-import ItemAddControl from "../../components/shop/ItemAddControl.jsx";
+import ItemAddControl from "../../components/ItemAddControl/ItemAddControl.jsx";
 import Image from "../../components/common/Image/Image.jsx";
 
 export default function Shop() {
@@ -14,13 +14,6 @@ export default function Shop() {
 	return (
 		<>
 			<div className="headerComponent">
-				{/* <button type="button" onClick={() => console.log(itemsList)}>
-					fetching data
-				</button>
-				<button type="button" onClick={() => console.log(cart)}>
-					test
-				</button> */}
-
 				<h1>Shop</h1>
 			</div>
 

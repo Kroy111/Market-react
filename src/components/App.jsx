@@ -1,13 +1,13 @@
 import { useEffect, useState } from "react";
-import { Outlet, useNavigate } from "react-router";
+import { Outlet } from "react-router";
 import fetchingData from "./fetchingData";
 import NavigationBar from "./navigationBar/NavigationBar";
+import { addItem, deleteItem, decreaseItem } from "./utils/cartLogic";
 
 const urlApi = "https://fakestoreapi.com/products";
 // let fetchingCount
 
 function App() {
-	const navigate = useNavigate();
 	const [itemsList, setItemsList] = useState([]);
 	const [cart, setCart] = useState({});
 
@@ -27,60 +27,27 @@ function App() {
 	}, []);
 
 	useEffect(() => {
-		console.log(cart);
+		console.log("Data was fetched", cart);
 	}, [cart]);
 
 	//Adding and increase item in cart
-	const addItem = (item) => {
-		setCart((prev) => ({
-			...prev, // тут идет копирование свойств на первом слое
-			[item.id]: {
-				//тут мы спускаемся ниже по айдишнику
-				...prev[item.id], //опять копируем свойства которые есть на втором слое
-				count: (prev[item.id]?.count ?? 0) + 1,
-				removing: false,
-			},
-		}));
-		console.log("add item from App.jsx");
+	const addItemToCart = (item) => {
+		setCart((prev) => addItem(item, prev));
+		console.log("Add item from App.jsx");
 	};
 
 	//Decrease item in cart
-	const decreaseItem = (item) => {
-		setCart((prev) => {
-			const currentCount = prev[item.id].count;
-
-			if (currentCount <= 1) {
-				markItemRemoving(item);
-			}
-			return {
-				...prev,
-				[item.id]: {
-					...prev[item.id],
-					count: prev[item.id].count - 1,
-				},
-			};
-		});
+	const decreaseItemInCart = (item) => {
+		setCart((prev) => decreaseItem(item, prev));
+		console.log("Decrease item in car!");
 	};
 
-	const markItemRemoving = (item) => {
-		setCart((prev) => ({
-			...prev,
-			[item.id]: {
-				//ANCHOR not shure, but mb need use it
-				...prev[item.id],
-				removing: true,
-			},
-		}));
-		console.log("Mark to remove");
-		console.log(cart[item.id]);
+	//Delete item in cart
+	const deleteItemFromCart = (item) => {
+		setCart((prev) => deleteItem(item, prev));
+		console.log("Delete item in cart");
 	};
 
-	const deleteItem = (item) => {
-		setCart((prev) => {
-			const { [item.id]: _, ...rest } = prev;
-			return rest;
-		});
-	};
 	return (
 		<>
 			<NavigationBar />
@@ -88,13 +55,11 @@ function App() {
 			<Outlet
 				context={{
 					cart,
-					//FIXME - need to delete after finishing cart!
-					setCart,
-					//
 					itemsList,
-					deleteItem,
-					addItem,
-					decreaseItem,
+					setCart,
+					deleteItem: deleteItemFromCart,
+					addItem: addItemToCart,
+					decreaseItem: decreaseItemInCart,
 				}}
 			/>
 		</>

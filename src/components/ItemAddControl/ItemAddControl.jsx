@@ -3,10 +3,10 @@ import Button from "../common/Button/Button";
 import style from "./ItemAddControl.module.css";
 import { Trash, Plus, Minus } from "lucide-react";
 
-export default function ItemControl({ item }) {
+export default function ItemAddControl({ item }) {
 	const { cart, addItem, decreaseItem, deleteItem } = useOutletContext();
 
-	// console.log(cart[item.id]?.count);
+	const ANIMATION_DURATION = 250;
 	const count = cart[item.id]?.count;
 	const isCart = count > 0;
 
@@ -15,12 +15,13 @@ export default function ItemControl({ item }) {
 			decreaseItem(item);
 			console.log("item count Decrease");
 		} else {
-			// deleteItem(item);
+			//decrease item count and after delete item from cart.
 			decreaseItem(item);
 
-			console.log("item was deleted");
+			setTimeout(() => {
+				deleteItem(item);
+			}, ANIMATION_DURATION);
 		}
-		// decreaseItem(item);
 	};
 
 	return (
@@ -30,17 +31,24 @@ export default function ItemControl({ item }) {
 					onClick={() => {
 						addItem(item);
 					}}
+					ariaLabel={"Add item in cart"}
 				>
 					<span>Add cart</span>
 				</Button>
 			) : (
 				<div className={style.cardItemsControl}>
-					<Button onClick={() => decreaseOrDelete()}>
+					<Button
+						onClick={() => decreaseOrDelete()}
+						ariaLabel={"Delete one item in cart"}
+					>
 						{count === 1 ? <Trash size={20} /> : <Minus size={20} />}
 						{/* <span>-</span> */}
 					</Button>
 					<p className={style.pCount}>{count}</p>
-					<Button onClick={() => addItem(item)}>
+					<Button
+						onClick={() => addItem(item)}
+						ariaLabel={"Add one item count in cart"}
+					>
 						<Plus size={20} />
 					</Button>
 				</div>

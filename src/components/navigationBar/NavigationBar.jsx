@@ -19,9 +19,9 @@ export default function NavigationBar() {
 			<nav className={style.nav}>
 				<ul className={style.navList}>
 					{Object.entries(navTemplate).map(([key, value]) => {
-						console.log(key, value);
+						// console.log(key, value);
 						return (
-							<div key={key}>
+							<div key={key} className={style.navLiWrapper}>
 								<li>
 									<Button
 										onClick={() => navigator(value.nav)}
@@ -32,7 +32,7 @@ export default function NavigationBar() {
 										{value.icon}
 									</Button>
 								</li>
-								<span className={style.navLiDot}>·</span>
+								{/* <span className={style.navLiDot}>·</span> */}
 							</div>
 						);
 					})}
