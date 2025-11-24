@@ -2,6 +2,7 @@
 	display: flex;
 	gap: 2rem;
 	/* min-height: 500px; */
+	min-width: 100%;
 }
 
 /* item cards container */
@@ -9,9 +10,9 @@
 	display: flex;
 	flex-direction: column;
 	gap: 1.5rem;
-
+	flex: 1;
 	min-width: 512px;
-	border: 2px solid lightseagreen;
+	/* border: 2px solid lightseagreen; */
 }
 
 /* .itemCard {

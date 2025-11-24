@@ -38,7 +38,6 @@ export default function Cart() {
 			>
 				test for cart
 			</Button>
-			<Button onClick={() => totalCheck(cart, itemsList)}>total check</Button>
 			{/* -------------- */}
 
 			<div className="headerComponent">

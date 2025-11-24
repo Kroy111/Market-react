@@ -12,11 +12,7 @@
 	min-width: 268px;
 	height: 100%;
 
-	border: 2px solid orange;
-}
-
-.checkoutInfo {
-	border: 1px solid gray;
+	/* border: 2px solid orange; */
 }
 
 .checkoutInfoBlock:first-child {

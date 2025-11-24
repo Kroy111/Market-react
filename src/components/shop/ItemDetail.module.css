@@ -15,7 +15,7 @@
 	grid-template-rows: minmax(150px, 1fr);
 	grid-template-areas: "img info info";
 
-	/* border: 1px orange solid; */
+	border: 1.5px solid var(--color-border);
 }
 
 .imageContainer {
