@@ -6,9 +6,9 @@ import { ShoppingBasket, Newspaper, Shirt } from "lucide-react";
 //images
 
 const navTemplate = {
-	News: { nav: "/", icon: <Newspaper size={36} /> },
-	Shop: { nav: "shop", icon: <Shirt size={36} /> },
-	Cart: { nav: "cart", icon: <ShoppingBasket size={36} /> },
+	News: { nav: "/", icon: <Newspaper size={36} color="black" /> },
+	Shop: { nav: "shop", icon: <Shirt size={36} color="black" /> },
+	Cart: { nav: "cart", icon: <ShoppingBasket size={36} color="black" /> },
 };
 
 export default function NavigationBar() {

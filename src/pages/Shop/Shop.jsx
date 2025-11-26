@@ -7,9 +7,7 @@ import Image from "../../components/common/Image/Image.jsx";
 export default function Shop() {
 	//access to data from App.jsx
 	//- itemsList contains the all goods for shop
-	const { itemsList, cart } = useOutletContext();
-
-	const navigator = useNavigate();
+	const { itemsList } = useOutletContext();
 
 	return (
 		<>
@@ -17,7 +15,7 @@ export default function Shop() {
 				<h1>Shop</h1>
 			</div>
 
-			<div className="shopItems container">
+			<div className={`${styles.container}`}>
 				{itemsList.map((el) => (
 					<Item key={el.id} item={el} />
 				))}
@@ -28,7 +26,7 @@ export default function Shop() {
 
 function Item({ item }) {
 	return (
-		<div className={`card sw fade-in ${styles.cardContainer}`}>
+		<div className={`card ${styles.cardContainer} sw fade-in`}>
 			<div className={styles.cardImage}>
 				<Image item={item} />
 				<Link to={`/shop/${item.id}`} className={styles.linkToItem}></Link>

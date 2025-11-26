@@ -254,13 +254,13 @@ main h2 {
 	font-size: 2rem;
 }
 
-.container {
+/* .container {
 	display: grid;
 	grid-template-columns: repeat(auto-fit, minmax(256px, 1fr));
 	gap: 2rem;
 	justify-items: center;
 	align-items: stretch;
-}
+} */
 
 .card {
 	display: flex;
