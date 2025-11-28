@@ -1,4 +1,4 @@
-import { useOutletContext, Link, useNavigate } from "react-router";
+import { useOutletContext, Link } from "react-router";
 
 import styles from "./Shop.module.css";
 import ItemAddControl from "../../components/ItemAddControl/ItemAddControl.jsx";

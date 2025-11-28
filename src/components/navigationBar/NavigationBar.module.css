@@ -1,5 +1,7 @@
 header {
 	padding: 0;
+	width: 100%;
+	/* transform: scale(0.6); */
 }
 
 .nav {
@@ -7,13 +9,16 @@ header {
 	width: 100%;
 	padding: 0 0 1rem 0;
 	margin: 0;
+	justify-content: center;
 	/* flex: 1; */
 	/* border-bottom: 1.5px solid goldenrod; */
 }
 
 .navList {
 	display: flex;
-	/* gap: 1rem; */
+	/* flex-direction: column; */
+	transform: scale(0.75);
+
 	padding: 0;
 	list-style: none;
 	/* border: 2px plum solid; */
@@ -48,4 +53,10 @@ header {
 
 .navLiWrapper:last-child .navLiDot {
 	color: transparent;
+}
+
+@media (width >= 640px) {
+	.navList {
+		transform: scale(1);
+	}
 }

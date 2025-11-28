@@ -16,6 +16,7 @@ export default function News() {
 						key={el.id}
 						title={el.title}
 						news={el.news}
+            link={el.id}
 						props={el.img}
 					/>
 				))}

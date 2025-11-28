@@ -4,6 +4,7 @@ import ErrorPage from "../pages/ErrorPage/ErrorPage.jsx";
 import Shop from "../pages/Shop/Shop.jsx";
 import Cart from "../pages/Cart/Cart.jsx";
 import ItemDetail from "../components/shop/ItemDetail.jsx";
+import NewsDetail from "../components/news/NewsDetail.jsx";
 
 export const routers = [
 	{
@@ -15,6 +16,10 @@ export const routers = [
 				index: true,
 				// path: "news",
 				element: <News />,
+			},
+			{
+				path: "/:id",
+				element: <NewsDetail />,
 			},
 			{
 				path: "shop",
