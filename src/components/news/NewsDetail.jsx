@@ -13,7 +13,7 @@ export default function NewsDetail() {
 	// 	navigation(-1);
 	// 	return null;
 	// }
-	console.log(newsArray, currentNews, id);
+	// console.log(newsArray, currentNews, id);
 
 	return (
 		<div className={`fade-in sw ${style.card}`}>

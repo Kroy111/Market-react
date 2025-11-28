@@ -3,7 +3,7 @@ import NewsTemplate from "../../components/news/NewsTemplate";
 import style from "./News.module.css";
 
 export default function News() {
-	console.log(newsArray);
+	// console.log(newsArray);
 	return (
 		<>
 			<div className="headerComponent">
@@ -16,7 +16,7 @@ export default function News() {
 						key={el.id}
 						title={el.title}
 						news={el.news}
-            link={el.id}
+						link={el.id}
 						props={el.img}
 					/>
 				))}

@@ -1,7 +1,7 @@
 import { Link } from "react-router";
 import style from "./NewsTemplate.module.css";
 export default function NewsTemplate({ title, news, link, ...props }) {
-	console.log(props);
+	// console.log(props);
 	return (
 		<div className={`${style.news} card sw`}>
 			<Link to={`/${link}`} className={style.linkToItem} />
