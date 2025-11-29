@@ -33,3 +33,17 @@
 	font-weight: bolder;
 	border: none;
 }
+
+@media (width <= 375px) {
+	/* .checkoutContainer {
+		max-width: 100%;
+	}
+	.btnCheckout {
+	} */
+}
+
+@media (width <= 874px) {
+	.checkoutContainer {
+		max-width: 100%;
+	}
+}

@@ -1,21 +1,31 @@
 .itemCard {
-	background-color: var(--color-1);
+	display: grid;
 	padding: 1rem;
-	display: flex;
-	min-height: 174px;
-	max-height: 200px;
 
+	/* min-height: 174px; */
+	max-height: 200px;
 	border-radius: 4px;
 	border: 1.5px solid var(--color-border);
+	background-color: var(--color-1);
 
-	/* border: 1px solid green; */
+	grid-template-columns: minmax(62px, 132px) minmax(286px, 528px) minmax(
+			128px,
+			220px
+		);
+	grid-template-rows: repeat(2, 1fr);
+
+	grid-template-areas:
+		"img info check"
+		"img info check";
 }
 
 .itemImage {
 	flex: 1;
 	position: relative;
 	overflow: hidden;
-	/* border: 1px blue solid; */
+	/* border: 2px purple solid; */
+
+	grid-area: img;
 }
 
 img {
@@ -29,10 +39,13 @@ img {
 	flex-direction: column;
 	justify-content: space-between;
 
-	flex-basis: 60%;
-	/* border: 1px solid red; */
+	/* flex-basis: 60%; */
+	/* border: 2px solid red; */
 	text-align: left;
 	padding-left: 0.8rem;
+	min-width: 286px;
+	max-width: 100%;
+	grid-area: info;
 }
 
 .highlightCategory {
@@ -51,12 +64,16 @@ img {
 /* item control and total price */
 
 .itemControl {
+	/* border: 2px solid blue; */
+
 	display: flex;
 	flex-direction: column;
 	/* flex-basis: 20%; */
 	justify-content: space-between;
-	width: 25%;
+	/* width: 25%; */
 	min-width: 128px;
+
+	grid-area: check;
 }
 
 .totalPrice {
@@ -67,4 +84,35 @@ img {
 	padding-left: 1rem;
 	height: 100%;
 	color: #00ad30;
+}
+
+/* MEDIA */
+
+@media (width <= 576px) {
+	.itemCard {
+		/* border: 3px solid gold; */
+
+		grid-template-columns: minmax(64px, 102px) 1fr;
+		grid-template-rows: 1fr 78px;
+
+		grid-template-areas:
+			"img info"
+			"check check";
+
+		max-height: min-content;
+	}
+
+	.itemSummary {
+		min-width: auto;
+		margin-bottom: 1rem;
+	}
+
+	.itemControl {
+		margin-top: 0.5rem;
+		border-top: 1px solid var(--color-border);
+		min-width: auto;
+	}
+	.totalPrice {
+		margin: auto;
+	}
 }

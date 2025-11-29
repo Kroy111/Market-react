@@ -15,110 +15,25 @@
 	/* border: 2px solid lightseagreen; */
 }
 
-/* .itemCard {
-	background-color: var(--color-1);
-	padding: 1rem;
-	display: flex;
-	min-height: 174px;
-	max-height: 200px;
+@media (width <= 375px) {
+	.container {
+		flex-direction: column;
+		font-size: small;
+		/* align-items: stretch; */
+	}
 
-	border: 1px solid green;
-} */
-
-/* item image */
-/* 
-.itemImage {
-	flex: 1;
-	position: relative;
-	overflow: hidden;
-	border: 1px blue solid;
+	.cardsContainer {
+		min-width: 100%;
+	}
 }
 
-img {
-	height: 100%;
-	width: 100%;
-} */
-/* Item Summary */
-/* 
-.itemSummary {
-	display: flex;
-	flex-direction: column;
-	justify-content: space-between;
+@media (width <= 874px) {
+	.container {
+		flex-direction: column;
+		align-items: stretch;
+	}
 
-	flex-basis: 60%;
-
-	text-align: left;
-	padding-left: 0.8rem;
+	.cardsContainer {
+		min-width: auto;
+	}
 }
-
-.highlightCategory {
-	color: #00ad30;
-}
-
-.checkoutMainText {
-	color: var(--color-header);
-	font-size: medium;
-	font-weight: 500;
-}
-
-.textColor {
-	color: var(--color-category);
-} */
-/* item control and total price */
-
-/* .itemControl {
-	display: flex;
-	flex-direction: column;
-
-	justify-content: space-between;
-	width: 25%;
-	min-width: 128px;
-}
-
-.totalPrice {
-	display: flex;
-	justify-content: center;
-	align-items: center;
-	margin-top: 1rem;
-	padding-left: 1rem;
-	height: 100%;
-	color: #00ad30;
-} */
-
-/* ================================== */
-/* 
-.checkoutContainer {
-	flex: 0;
-	position: sticky;
-	top: 0;
-	align-items: stretch;
-	padding: 1rem;
-	max-width: 270px;
-	min-width: 268px;
-	height: 100%;
-
-	border: 2px solid orange;
-}
-
-.checkoutInfo {
-	border: 1px solid gray;
-}
-
-.checkoutInfoBlock:first-child {
-	padding-bottom: 0.6rem;
-}
-
-.checkoutInfoBlock {
-	display: flex;
-	justify-content: space-between;
-	align-items: center;
-}
-
-.btnCheckout {
-	height: 58px;
-	color: white;
-	background-color: rgb(16 196 76);
-	font-size: larger;
-	font-weight: bolder;
-	border: none;
-} */
