@@ -15,7 +15,7 @@
 	/* border: 2px solid lightseagreen; */
 }
 
-@media (width <= 375px) {
+@media (width <= 414px) {
 	.container {
 		flex-direction: column;
 		font-size: small;

@@ -92,7 +92,7 @@
 	flex-grow: 1;
 }
 
-@media (width <= 375px) {
+@media (width <= 414px) {
 	.container {
 		grid-template-columns: repeat(auto-fit, minmax(124px, 1fr));
 		gap: 1rem;
