@@ -10,6 +10,7 @@ const urlApi = "https://fakestoreapi.com/products";
 function App() {
 	const [itemsList, setItemsList] = useState([]);
 	const [cart, setCart] = useState({});
+	const [itemCountInCart, setItemCountInCart] = useState(0);
 
 	//fetching items.
 	useEffect(() => {
@@ -28,6 +29,12 @@ function App() {
 
 	useEffect(() => {
 		console.log("Data was fetched", cart);
+		const itemsCount = Object.values(cart).reduce(
+			(acc, item) => acc + item.count,
+			0,
+		);
+		setItemCountInCart(itemsCount);
+		console.log("APP items count", itemsCount, cart);
 	}, [cart]);
 
 	//Adding and increase item in cart
@@ -50,7 +57,7 @@ function App() {
 
 	return (
 		<>
-			<NavigationBar />
+			<NavigationBar itemCount={itemCountInCart} />
 
 			<Outlet
 				context={{

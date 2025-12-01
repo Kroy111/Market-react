@@ -14,6 +14,24 @@ header {
 	/* border-bottom: 1.5px solid goldenrod; */
 }
 
+.iconSpan {
+	position: absolute;
+	font-size: 1.2rem;
+	right: -44px;
+	left: 0;
+	bottom: -6px;
+	/* background-color: var(--color-header); */
+	color: var(--color-header);
+
+	transition: transform 250ms ease-in-out;
+
+	transform: translateX(0);
+}
+
+.navLiWrapper:hover .iconSpan {
+	transform: translateX(-21%);
+}
+
 .navList {
 	display: flex;
 	/* flex-direction: column; */
@@ -51,7 +69,7 @@ header {
 	color: var(--color-header);
 }
 
-.navLiWrapper:last-child .navLiDot {
+.navLiDot:last-child {
 	color: transparent;
 }
 

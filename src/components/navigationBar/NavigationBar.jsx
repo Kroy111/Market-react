@@ -11,7 +11,7 @@ const navTemplate = {
 	Cart: { nav: "cart", icon: <ShoppingBasket size={36} color="black" /> },
 };
 
-export default function NavigationBar() {
+export default function NavigationBar({ itemCount }) {
 	const navigator = useNavigate();
 
 	return (
@@ -21,19 +21,24 @@ export default function NavigationBar() {
 					{Object.entries(navTemplate).map(([key, value]) => {
 						// console.log(key, value);
 						return (
-							<div key={key} className={style.navLiWrapper}>
-								<li>
-									<Button
-										onClick={() => navigator(value.nav)}
-										variant="navBar"
-										styleText={key}
-									>
-										{/* <Shirt size={38} /> */}
-										{value.icon}
-									</Button>
-								</li>
-								{/* <span className={style.navLiDot}>·</span> */}
-							</div>
+							<>
+								<div key={key} className={style.navLiWrapper}>
+									<li>
+										<Button
+											onClick={() => navigator(value.nav)}
+											variant="navBar"
+											styleText={key}
+										>
+											{/* <Shirt size={38} /> */}
+											{value.icon}
+											{value.nav === "cart" && itemCount > 0 ? (
+												<span className={style.iconSpan}>{itemCount}</span>
+											) : null}
+										</Button>
+									</li>
+								</div>
+								<span className={style.navLiDot}>·</span>
+							</>
 						);
 					})}
 				</ul>
