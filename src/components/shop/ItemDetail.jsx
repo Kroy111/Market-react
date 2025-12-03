@@ -53,6 +53,7 @@ export default function ItemDetail() {
 							options={`${item.rating.rate}⭐️⭐️⭐️⭐️⭐️`}
 							name={"Rate"}
 						/>
+						<ItemCategory options={`${item.rating.count}`} name={"Count"} />
 						<ItemCategory options={`${item.price}＄`} name={"Price"} />
 					</div>
 

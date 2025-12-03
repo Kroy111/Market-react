@@ -1,7 +1,7 @@
 .container {
 	display: grid;
 	grid-template-columns: repeat(auto-fit, minmax(172px, 1fr));
-	gap: 2rem;
+	gap: 1rem;
 	justify-items: center;
 	align-items: stretch;
 }
@@ -65,7 +65,7 @@
 	display: flex;
 
 	/* pointer-events: all; */
-	height: 35%;
+	/* height: 35%; */
 	flex-direction: column;
 	justify-content: space-between;
 	z-index: 1;
@@ -91,6 +91,20 @@
 .cardItemsControl * {
 	flex-grow: 1;
 }
+
+.itemInfo {
+	margin: 0.4rem 0;
+}
+
+.itemInfoContainer {
+	/* border: 2px solid saddlebrown; */
+	display: flex;
+	justify-content: space-between;
+}
+
+/* .itemInfoContainer > span:last-child {
+	font-weight: bold;
+} */
 
 @media (width <= 414px) {
 	.container {

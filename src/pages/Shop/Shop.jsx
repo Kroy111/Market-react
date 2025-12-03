@@ -36,7 +36,17 @@ function Item({ item }) {
 				<h2>{item.title}</h2>
 				<Link to={`/shop/${item.id}`}>Description</Link>
 
-				<p>Price: {item.price}$</p>
+				<div className={styles.itemInfo}>
+					<div className={styles.itemInfoContainer}>
+						<span>Count:</span>
+						<span>{item.rating.count}</span>
+					</div>
+					<div className={styles.itemInfoContainer}>
+						<span>Price:</span>
+						<span>{item.price}$</span>
+					</div>
+					{/* <p>Price: {item.price}$</p> */}
+				</div>
 
 				<ItemAddControl item={item} />
 			</div>
